@@ -34,8 +34,8 @@ public:
     friend std::ostream & operator << (std::ostream &os, const Vector3f &v)
     { return os << v.x << ", " << v.y << ", " << v.z; }
     double       operator[](int index) const;
-    double&      operator[](int index);
-
+    //double&      operator[](int index);
+    float& operator[](int index);
 
     static Vector3f Min(const Vector3f &p1, const Vector3f &p2) {
         return Vector3f(std::min(p1.x, p2.x), std::min(p1.y, p2.y),
@@ -51,6 +51,9 @@ inline double Vector3f::operator[](int index) const {
     return (&x)[index];
 }
 
+inline float& Vector3f::operator[](int index) {
+    return (&x)[index];
+}
 
 class Vector2f
 {
